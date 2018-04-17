@@ -281,5 +281,4 @@ function render()
     game.debug.text('Enemies: ' + enemiesAlive + ' / ' + enemiesTotal, 32, 32);
     game.debug.text('Player Health: ' + tank.health, 32, 64);
 	game.debug.text('your power is: '  + power, 32, 96);
-    game.debug.soundInfo(music, 32, 32);
 }
