@@ -63,6 +63,8 @@ function preload()
     game.load.image('bullet', 'assets/bullet.png');
     game.load.image('earth', 'assets/scorched_earth.png');
     game.load.spritesheet('kaboom', 'assets/explosion.png', 64, 64, 23);
+    
+    game.load.audio('boden', 'assets/bensound-dubstep.mp3');
 }
 var land;
 var shadow;
@@ -86,6 +88,8 @@ var gameStart = false;
 var amountkilled = 0;
 var power = 1;
 
+var music;
+
 function create()
 {
     gameStart = false;
@@ -105,6 +109,10 @@ function create()
 	logo = game.add.sprite(0, 200, 'logo');
     logo.fixedToCamera = true;
     game.input.onDown.add(removeLogo, this);
+    
+    music = game.add.audio('boden');
+
+    music.play();
 
 }
 
@@ -273,4 +281,5 @@ function render()
     game.debug.text('Enemies: ' + enemiesAlive + ' / ' + enemiesTotal, 32, 32);
     game.debug.text('Player Health: ' + tank.health, 32, 64);
 	game.debug.text('your power is: '  + power, 32, 96);
+    game.debug.soundInfo(music, 32, 32);
 }
