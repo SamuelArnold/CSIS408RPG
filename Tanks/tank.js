@@ -60,6 +60,8 @@ function preload()
     game.load.image('enemy', 'assets/Turtle.png');
 	game.load.image('enemy2', 'assets/Shark.png');
     game.load.image('logo', 'assets/logo.png');
+    game.load.image('story', 'assets/story.png');
+
     game.load.image('bullet', 'assets/bullet.png');
     game.load.image('earth', 'assets/scorched_earth.png');
     game.load.spritesheet('kaboom', 'assets/explosion.png', 64, 64, 23);
@@ -85,6 +87,8 @@ var moveUp;
 var turnRight;
 var turnLeft;
 var gameStart = false;
+var gameStart2 = false;
+
 var amountkilled = 0;
 var power = 1;
 
@@ -92,6 +96,7 @@ var music;
 
 function create()
 {
+
     gameStart = false;
 
 
@@ -110,11 +115,25 @@ function create()
     logo.fixedToCamera = true;
     game.input.onDown.add(removeLogo, this);
     
+    story = game.add.sprite(0, 200, 'story');
+    story.fixedToCamera = true;
+    game.input.onDown.add(removeStory, this);
+    
     music = game.add.audio('boden');
 
     music.play();
 
 }
+
+function removeStory()
+{
+
+    game.input.onDown.remove(removeStory, this);
+    story.kill();
+    gameStart2 = true;   
+
+}
+
 
 function removeLogo()
 {
