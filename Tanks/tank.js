@@ -111,7 +111,7 @@ function create()
     tank = game.add.sprite(0, 0, 'tank');
     tank.anchor.setTo(0.5, 0.5);
 
-	logo = game.add.sprite(0, 200, 'logo');
+	logo = game.add.sprite(0, 100, 'logo');
     logo.fixedToCamera = true;
     game.input.onDown.add(removeLogo, this);
     
